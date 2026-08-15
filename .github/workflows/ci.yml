@@ -1,0 +1,19 @@
+name: DevSecOps CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Show repository files
+        run: ls -la
+
+      - name: Run test command
+        run: echo "CI pipeline is working!"
