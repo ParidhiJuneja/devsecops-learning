@@ -15,5 +15,5 @@ jobs:
       - name: Show repository files
         run: ls -la
 
-      - name: Run test command
-  	run: exit 1
+     - name: Run test command
+  	run: echo "CI pipeline is working!"
