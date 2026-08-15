@@ -3,6 +3,7 @@ def add(a, b):
 
 
 def subtract(a, b):
+    unused_variable = 123
     return a - b
 
 
