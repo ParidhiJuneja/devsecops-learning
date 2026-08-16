@@ -12,3 +12,5 @@ This repository is my hands-on DevSecOps learning project.
 - Snyk
 - Docker
 - Security scanning
+
+Snyk CI integration test
