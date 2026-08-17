@@ -37,7 +37,7 @@ jobs:
           args: --severity-threshold=high
       - name: Package application
         run: |
-          zip -r app-package.zip app requirements.txt
+          zip -r app-package.zip app requirements.txt -x "app/__pycache__/*"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
