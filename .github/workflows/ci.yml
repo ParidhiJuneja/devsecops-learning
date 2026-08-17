@@ -47,6 +47,8 @@ jobs:
   deploy-staging:
     needs: test
     runs-on: ubuntu-latest
+    environment:
+      name: staging
 
     steps:
       - name: Download artifact
