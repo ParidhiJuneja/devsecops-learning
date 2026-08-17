@@ -44,4 +44,24 @@ jobs:
         with:
           name: app-package
           path: app-package.zip
+  deploy-staging:
+    needs: test
+    runs-on: ubuntu-latest
 
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: app-package
+          path: staging
+
+      - name: Deploy to staging
+        run: |
+          echo "Deploying application to staging..."
+          ls -R staging
+
+      - name: Staging smoke test
+        run: |
+          test -f staging/app/app.py
+          test -f staging/requirements.txt
+          echo "Staging smoke test passed"
