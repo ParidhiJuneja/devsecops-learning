@@ -37,7 +37,7 @@ jobs:
           args: --severity-threshold=high
       - name: Package application
         run: |
-          Compress-Archive -Path app, requirements.txt -DestinationPath app-package.zip
+          zip -r app-package.zip app requirements.txt
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
