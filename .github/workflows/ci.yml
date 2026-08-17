@@ -70,4 +70,32 @@ jobs:
           test -f staging/deployed/app/app.py
           test -f staging/deployed/requirements.txt
           echo "Staging smoke test passed"
+  deploy-production:
+    needs: deploy-staging
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: app-package
+          path: production
+
+      - name: Extract artifact
+        run: |
+          unzip -o production/app-package.zip -d production/deployed
+
+      - name: Deploy to production
+        run: |
+          echo "Deploying application to production..."
+          ls -R production
+
+      - name: Production smoke test
+        run: |
+          test -f production/deployed/app/app.py
+          test -f production/deployed/requirements.txt
+          echo "Production deployment successful"
+
 
